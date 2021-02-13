@@ -1,32 +1,71 @@
+<style>
+    .alert {
+      padding: 20px;
+      background-color: green;
+      color: white;
+    }
+    
+    .closebtn {
+      margin-left: 15px;
+      color: white;
+      font-weight: bold;
+      float: right;
+      font-size: 22px;
+      line-height: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    
+    .closebtn:hover {
+      color: black;
+    }
+</style>
+<script>
+    setTimeout(function(){
+        location.reload();
+    },500);
+    
+    var requestOptions = {
+     method: 'GET',
+     redirect: 'follow'
+   };
+
+   fetch("158.108.182.10:3000/get_data", requestOptions)
+     .then(response => {data=response.json})
+     .then(result => console.log(result))
+     .catch(error => console.log('error', error));
+ </script>
 {% extends 'test.html' %}
 {% block content %}
     {% load static %}
-    div class="parking">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <div class="parking">
         <div class="wrapper">
             <div class="cards">
-                <div class="time-card" {% if !True %}style="background-color: red;"{% endif %}>
-                    {% if True}
+                <div class="time-card" {% if data[P1][status] %}style="background-color: red;"{% endif %}>
+                    {% if data[P1][status] %}
+                        <h5>Available</h5>
+                        </div>
+                    {% else %}
+                        <h5>Unavailable</h5>
+                    {% endif %}
+                </div>
+                <div class="time-card" {% if data[P1][status] %}style="background-color: red;"{% endif %}>
+                    {% if data[P1][status] %}
                         <h5>Available</h5>
                     {% else %}
                         <h5>Unavailable</h5>
                     {% endif %}
                 </div>
-                <div class="time-card" {% if !True %}style="background-color: red;"{% endif %}>
-                    {% if True}
+                <div class="time-card" {% if data[P1][status] %}style="background-color: red;"{% endif %}>
+                    {% if data[P1][status] %}
                         <h5>Available</h5>
                     {% else %}
                         <h5>Unavailable</h5>
                     {% endif %}
                 </div>
-                <div class="time-card" {% if !True %}style="background-color: red;"{% endif %}>
-                    {% if True}
-                        <h5>Available</h5>
-                    {% else %}
-                        <h5>Unavailable</h5>
-                    {% endif %}
-                </div>
-                <div class="time-card" {% if !True %}style="background-color: red;"{% endif %}>
-                    {% if True}
+                <div class="time-card" {% if data[P1][status] %}style="background-color: red;"{% endif %}>
+                    {% if data[P1][status] %}
                         <h5>Available</h5>
                     {% else %}
                         <h5>Unavailable</h5>
