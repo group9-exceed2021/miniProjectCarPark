@@ -4,17 +4,33 @@
     div class="parking">
         <div class="wrapper">
             <div class="cards">
-                <div class="time-card">
-                    <h5>Available</h5>
+                <div class="time-card" {% if !True %}style="background-color: red;"{% endif %}>
+                    {% if True}
+                        <h5>Available</h5>
+                    {% else %}
+                        <h5>Unavailable</h5>
+                    {% endif %}
                 </div>
-                <div class="time-card">
-                    <h5>Available</h5>
+                <div class="time-card" {% if !True %}style="background-color: red;"{% endif %}>
+                    {% if True}
+                        <h5>Available</h5>
+                    {% else %}
+                        <h5>Unavailable</h5>
+                    {% endif %}
                 </div>
-                <div class="time-card">
-                    <h5>Available</h5>
+                <div class="time-card" {% if !True %}style="background-color: red;"{% endif %}>
+                    {% if True}
+                        <h5>Available</h5>
+                    {% else %}
+                        <h5>Unavailable</h5>
+                    {% endif %}
                 </div>
-                <div class="time-card">
-                    <h5>Available</h5>
+                <div class="time-card" {% if !True %}style="background-color: red;"{% endif %}>
+                    {% if True}
+                        <h5>Available</h5>
+                    {% else %}
+                        <h5>Unavailable</h5>
+                    {% endif %}
                 </div>
             </div>
         </div>
