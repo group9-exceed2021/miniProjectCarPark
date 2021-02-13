@@ -1,55 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<script>
-window.onload = function () {
-
-var dps = []; // dataPoints
-var chart = new CanvasJS.Chart("chartContainer", {
-	title :{
-		text: "Total Money VS Time-Interval"
-	},
-	data: [{
-      	lineColor : "darkblue",
-		type: "line",
-		dataPoints: dps
-	}],
- 	axisX:{
-  		title: "Time"
- 	},
-  	axisY:{
-      	title: "Total Money"
-    }
-});
-
-var xVal = 0;
-var yVal = 0; //half part of y
-var updateInterval = 1000; // run time of graph
-var dataLength = 20; // number of dataPoints visible at any point // ความยาวแกน x
-
-var updateChart = function (count) {
-
-	count = count || 1;
-
-	for (var j = 0; j < count; j++) {
-		dps.push({
-			x: xVal,
-			y: yVal
-		});
-	}
-
-	if (dps.length > dataLength) {
-		dps.shift();
-	}
-
-	chart.render();
-};
-
-updateChart(dataLength);
-setInterval(function(){updateChart()}, updateInterval);
-
-}
-</script>
+<script src="test.js"></script>
 </head>
 <body>
 <div id="chartContainer" style="height: 370px; width:100%;"></div>
