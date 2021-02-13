@@ -51,5 +51,15 @@ def find():
 
     return { "result": output }
 
+@app.route('/inpark', methods=['PATCH'])
+def inpark():
+    flit = {'type' : 'all'}
+    tmp = myCollection.find(flit)
+    update_car = tmp[0]["all_car"]
+    update_car += 1
+    update = {"$set" : {"all_car": update_car}}
+    myCollection.update_one(flit, update)
+    return {"result" : "success"}
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port='50002', debug=True)
